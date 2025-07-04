@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontrol WS Server</title>
+</head>
+<body>
+  <h1>Kontrol WS Server</h1>
+  <button id="hidupkan">Hidupkan</button>
+  <button id="matikan">Matikan</button>
+  <script>
+    document.getElementById("hidupkan").onclick = () => {
+      fetch('/start', {method: 'POST'})
+        .then(r => r.text())
+        .then(alert);
+    };
+
+    document.getElementById("matikan").onclick = () => {
+      fetch('/stop', {method: 'POST'})
+        .then(r => r.text())
+        .then(alert);
+    };
+  </script>
+</body>
+</html>
